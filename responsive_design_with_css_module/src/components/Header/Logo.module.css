@@ -1,0 +1,49 @@
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.vex {
+  color: var(--color-brand-green);
+}
+
+.cash {
+  color: var(--color-brand-gray);
+  padding-right: 2px;
+}
+
+.registered {
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-brand-gray);
+  top: 0;
+  margin-top: -2px;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* Large mobile and up */
+@media (min-width: 568px) {
+  .wordmark {
+    font-size: 32px;
+  }
+}

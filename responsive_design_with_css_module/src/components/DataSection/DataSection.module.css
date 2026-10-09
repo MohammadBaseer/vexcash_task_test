@@ -1,0 +1,116 @@
+
+.section {
+  margin-bottom: 48px;
+}
+
+.title {
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-brand-green);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-heading);
+  overflow-wrap: anywhere;
+}
+
+.field {
+  padding: 12px 0 14px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.group:last-child .field:last-child {
+  border-bottom: none;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--color-label);
+}
+
+.value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.valueIcon {
+  width: 19px;
+  height: 19px;
+}
+
+/* Large mobile */
+@media (min-width: 568px) {
+  .title {
+    font-size: 21px;
+  }
+}
+
+/* Tablet and up: inline label/value rows */
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .title {
+    margin-bottom: 18px;
+    padding-bottom: 6px;
+  }
+
+  .group + .group {
+    margin-top: 22px;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: var(--label-width, 175px) minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: none;
+  }
+
+  .label {
+    margin-bottom: 0;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+  }
+
+  .label,
+  .value {
+    font-size: 15px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .field {
+    --label-width: 205px;
+  }
+
+  .label,
+  .value {
+    font-size: 16px;
+  }
+}
+
+/* Large desktop: content is narrower because of the sidebar */
+@media (min-width: 1200px) {
+  .field {
+    --label-width: 170px;
+  }
+
+  .label,
+  .value {
+    font-size: 15px;
+  }
+}

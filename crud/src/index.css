@@ -1,0 +1,15 @@
+
+/* Keep line breaks the user typed in the description. */
+.task-description {
+  white-space: pre-wrap;
+}
+
+/* Lets long titles wrap instead of pushing the buttons off the screen. */
+.task-details {
+  min-width: 0;
+}
+
+/* Dark see-through background behind the delete popup. */
+.modal-backdrop-custom {
+  background-color: rgba(0, 0, 0, 0.5);
+}

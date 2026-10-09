@@ -1,0 +1,30 @@
+
+:root {
+  /* Brand */
+  --color-brand-green: #8fc31f;
+  --color-brand-gray: #646464;
+  --color-accent: #2bb3d4;
+  --color-success: #3b7a35;
+
+  /* Text */
+  --color-heading: #333333;
+  --color-text: #5b5b5b;
+  --color-text-muted: #707070;
+  --color-label: #6b6b6b;
+
+  /* Surfaces & lines */
+  --color-bg: #ffffff;
+  --color-menu-bg: #f9f9f9;
+  --color-menu-hover: #f2f2f2;
+  --color-menu-text: #9b9b9b;
+  --color-border: #dddddd;
+  --color-divider: #ececec;
+  --color-icon-dark: #404040;
+
+  /* Typography */
+  --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --transition-fast: 150ms ease-in-out;
+}

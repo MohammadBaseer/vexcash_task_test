@@ -1,0 +1,36 @@
+
+.profile-overview {
+  max-width: 1400px;
+}
+
+.profile-overview > .row {
+  --bs-gutter-x: 0;
+}
+
+@media (min-width: 567px) {
+  .profile-overview > .row {
+    --bs-gutter-x: 40px;
+  }
+
+  .profile-overview > .row > .profile-column {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-overview > .row {
+    --bs-gutter-x: 72px;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile-overview > .row {
+    --bs-gutter-x: 86px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile-overview > .row {
+    --bs-gutter-x: 72px;
+  }
+}

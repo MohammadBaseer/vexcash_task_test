@@ -1,0 +1,136 @@
+.nav {
+  display: none;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.open {
+  display: block;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* "Abmelden" always gets a row of its own */
+.item:last-child {
+  grid-column: 1 / -1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  min-height: 56px;
+  padding: 8px;
+  /* Scales down on very small phones so labels fit on one line */
+  font-size: clamp(12px, 3.6vw, 14px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-menu-text);
+  background: var(--color-menu-bg);
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text);
+  background: var(--color-menu-hover);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.active,
+.active:hover {
+  color: var(--color-accent);
+  background: var(--color-bg);
+}
+
+.icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+/* Labels stay on one line; ellipsis only as a last resort on very narrow screens */
+.label {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+/* Large mobile: three columns */
+@media (min-width: 568px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .link {
+    gap: 12px;
+    min-height: 60px;
+    padding: 8px 14px;
+    font-size: 16px;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Desktop: always visible, no toggle */
+@media (min-width: 992px) {
+  .nav {
+    display: block;
+    padding: 0 15px;
+  }
+
+  .link {
+    font-size: 17px;
+  }
+}
+
+/* Large desktop: vertical sidebar */
+@media (min-width: 1200px) {
+  .nav {
+    flex: 0 0 var(--sidebar-width);
+    padding: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    background: var(--color-menu-bg);
+  }
+
+  .list {
+    display: block;
+  }
+
+  .link {
+    gap: 16px;
+    min-height: 70px;
+    padding: 10px 12px 10px 34px;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
