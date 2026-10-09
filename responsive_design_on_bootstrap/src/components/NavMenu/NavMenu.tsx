@@ -22,14 +22,14 @@ export default function NavMenu({ id, items, activeId, isOpen, onSelect }: NavMe
           const Icon = item.icon;
 
           function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-            event.preventDefault(); // stay on this page, just switch the active item
+            event.preventDefault();
             onSelect(item.id);
           }
 
           return (
             <li key={item.id} className="account-nav-item">
               <a
-                href={`#${item.id}`}
+                href={`/${item.id}`}
                 className={`account-nav-link d-flex align-items-center h-100 fw-medium text-decoration-none${isActive ? ' is-active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
                 title={item.label}

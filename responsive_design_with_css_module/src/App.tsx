@@ -8,19 +8,38 @@ import { USER, PROFILE_COLUMNS } from './data/profile';
 import styles from './App.module.css';
 
 const NAV_ID = 'account-navigation';
+const DEFAULT_ID = 'persoenliche-daten';
+
+function getIdFromPath(): string {
+  const id = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  return NAV_ITEMS.some((item) => item.id === id) ? id : DEFAULT_ID;
+}
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [activeId, setActiveId] = useState<string>('persoenliche-daten');
+  const [activeId, setActiveId] = useState<string>(getIdFromPath);
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
   function handleSelect(id: string) {
+    if (id !== activeId) {
+      window.history.pushState(null, '', `/${id}`);
+    }
     setActiveId(id);
     setIsMenuOpen(false);
   }
+
+  useEffect(() => {
+    function handlePopState() {
+      setActiveId(getIdFromPath());
+      setIsMenuOpen(false);
+    }
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -56,7 +75,7 @@ export default function App() {
         />
 
         <main className={styles.content}>
-          {activeId === 'persoenliche-daten' ? (
+          {activeId === DEFAULT_ID ? (
             <ProfileOverview columns={PROFILE_COLUMNS} />
           ) : (
             <PagePlaceholder title={activeItem ? activeItem.label : ''} />
